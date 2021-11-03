@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "junegull";
+    src: url("./junegull.ttf");
+}
+@font-face {
+    font-family: "signika-bold";
+    src: url("./Signika-Bold.ttf");
+}
+@font-face {
+    font-family: "signika-light";
+    src: url("./Signika-Light.ttf");
+}
+@font-face {
+    font-family: "signika-regular";
+    src: url("./Signika-Regular.ttf");
+}
+@font-face {
+    font-family: "signika-semibold";
+    src: url("./Signika-Semibold.ttf");
+}
