@@ -12,6 +12,11 @@ const fastifyMailer = require("fastify-mailer");
 const fastifyCors = require("fastify-cors");
 // init cloudinary
 const cloudinary = require("cloudinary").v2;
+cloudinary.config({ 
+  cloud_name: 'mixam', 
+  api_key: '157387573584254', 
+  api_secret: 'f9b7Qm_MNw7Xgg2OH-HCO2OxsMw' 
+});
 //const fastifyPlugin = require("fastify-plugin");
 //imoport my custom db handler v1.0.0;
 const dbInterface = require("./db/dbhandler");
