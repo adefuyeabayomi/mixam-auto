@@ -1,0 +1,11 @@
+{
+  "name": "db-operations-interface-monog",
+  "version": "1.0.0",
+  "description": "An interface to carry out data retrieval, data entry, data update and data removal from a mongo db database using a class to provide future extensibility.",
+  "main": "dbhandler.js",
+  "author": "Abayomi Adefuye",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^4.1.1"
+  }
+}
