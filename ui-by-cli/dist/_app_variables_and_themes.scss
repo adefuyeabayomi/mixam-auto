@@ -1,0 +1,102 @@
+// color variables will be declared here;
+$theme-blue : #bbf0ff;
+$theme-blue-shade1 : #dffdfe;
+$theme-blue-shade2 : #deecfe;
+$theme-blue-shade3 : #f3ffff;
+$theme-light-gray : #5e5e5e;
+$theme-dark-gray : #2d2d2d;
+$theme-text-main : #0f3637;
+$theme-text-primary : #1a7a7d;
+$theme-text-secondary : #3b6777;
+$theme-text-tetiary : #486d6b;
+$theme-button-one : #f3f188;
+$theme-button-two : #b1a855;
+$theme-button-three : #fbe69f;
+//padding;
+@mixin padding1{
+    padding : 16px;
+}
+@mixin padding2{
+    padding: 32px;
+}
+@mixin padding3{
+    padding: 48px;
+}
+@mixin padding4{
+    padding: 64px;
+}
+@mixin padding-left1{
+    padding-left: 16px;
+}
+@mixin padding-left2{
+    padding-left : 32px;
+}
+@mixin padding-left3{
+    padding-left: 48px;
+}
+@mixin padding-left4{
+    padding-left: 64px;
+}
+@mixin padding-right1{
+    padding-right: 16px;
+}
+@mixin padding-right2{
+    padding-right : 32px;
+}
+@mixin padding-right3{
+    padding-right: 48px;
+}
+@mixin padding-right4{
+    padding-right: 64px;
+}
+@mixin padding-top1{
+    padding-top: 16px;
+}
+@mixin padding-top2{
+    padding-top : 32px;
+}
+@mixin padding-top3{
+    padding-top: 48px;
+}
+@mixin padding-top4{
+    padding-top: 64px;
+}
+@mixin padding-bottom1{
+    padding-bottom: 16px;
+}
+@mixin padding-bottom2{
+    padding-bottom : 32px;
+}
+@mixin padding-bottom3{
+    padding-bottom: 48px;
+}
+@mixin padding-bottom4{
+    padding-bottom: 64px;
+}
+
+@mixin padding-top8
+{
+    padding-top: 8px;
+}
+
+@mixin padding-bottom8
+{
+    padding-bottom: 8px;
+}
+
+@mixin padding-left8
+{
+    padding-left: 8px;
+}
+
+@mixin padding-right8
+{
+    padding-right: 8px;
+}
+// fonts
+$theme-view-font1-regular : "signika-regular";
+$theme-view-font1-light : "signika-light";
+$theme-view-font1-semibold : "signika-semibold";
+$theme-header-font1: "junegull";
+$theme-header-font2: "signika-bold";
+// button theming variable will be declared here.
