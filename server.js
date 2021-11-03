@@ -71,7 +71,7 @@ fastify.register(forgotpasswordRoute,{ client : MongoClient,dbOptions,dbHandler 
 // start server.
 async function start(){
     try{
-        await fastify.listen(process.env.PORT,0.0.0.0,(err,addr)=>{
+        await fastify.listen(process.env.PORT,"0.0.0.0",(err,addr)=>{
             if(err){
                 throw err;
             }
