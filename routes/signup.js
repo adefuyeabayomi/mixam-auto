@@ -1,32 +1,40 @@
 async function signup (fastify,options){ // db and mailer mongoClient and the dbOptions
         fastify.get("/apiservice/signup",async (request,reply)=>{
             let dbClient = new options.client(options.dbOptions.url,options.dbOptions.options);
-            let handler = new options.dbHandler(dbClient,options.dbOptions);
+            let handler = new options.dbHandler(dbClient,options.dbOptions.dbname);
             let collection = "accountInformation";
+            console.log(request.query);
             let email = request.query.email;
             let password = request.query.password;
-            let id = email + String(Math.round(Math.random()*10000)) +"MID";
+            let loginType = request.query.loginType;
+            let mid = email + String(Math.round(Math.random()*10000)) +"MID";
+            console.log("Mixam User ID : ", mid);
             let dbOptions = {
                 collection, 
                 document : {
                     email,
                     password,
-                    __mid: id,
+                    loginType,
+                    profileImageLink : "",
+                    username: "",
+                    lastLoggedIn: "",
+                    created : Date.now(),
+                    verified: false,
+                    __mid: mid,
                 }
             }
+
             let userAdded = await handler.addEntry(dbOptions);
+
             if(userAdded){
-              let replyObj = {
-                            success: true,
-                            email,
-                            password,
-                            __mid : dbOptions.id,
-                            responseMessage : "Successfully added user " + email + " to mixam database"
-                        };
-                        reply.code(200);
-                        reply.header("Content-Type", "application/json; charset=utf-8");
-                        reply.send(JSON.stringify(replyObj));
-                        console.log(JSON.stringify(replyObj));
+                    let replyObj = {};
+                    replyObj._userInfo = dbOptions.document;
+                    replyObj.success = true;
+                    replyObj.responseMessage = "Successfully added user " + email + " to mixam database";
+                    reply.code(200);
+                    reply.header("Content-Type", "application/json; charset=utf-8");
+                    reply.send(JSON.stringify(replyObj));
+                    console.log("response", JSON.stringify(replyObj));
                 //notify user
             }
             else {
@@ -39,7 +47,7 @@ async function signup (fastify,options){ // db and mailer mongoClient and the db
                 reply.code(500);
                 reply.header("Content-Type", "application/json; charset=utf-8");
                 reply.send(JSON.stringify(replyObj));
-                console.log(JSON.stringify(replyObj));
+                console.log("response", JSON.stringify(replyObj));
             }
             return;
         })
