@@ -16,15 +16,12 @@ const cloudinary = require("cloudinary").v2;
 //imoport my custom db handler v1.0.0;
 const dbInterface = require("./db/dbhandler");
 // import monoclilent from nongodb to pass to my handler
-const { MongoClient } = require("mongodb");
-const dbOptions = {
-    dbname : "main@mixam",
-    url : process.env.DB_URL,
-    options : { 
-        useUnifiedTopology: true 
-    }
-}
+const dbconnnector = require("./db/db-connector");
+
+fastify.register(dbconnnector);
+
 const path = require("path");
+
 const utils = require("./utils/utils");
 
 // register fastify cors 
@@ -40,38 +37,20 @@ fastify.register(fastifyStatic,{
     root : path.join(__dirname,'ui-by-cli/dist')
 });
 
-// register fastify mailer 
-fastify.register(fastifyMailer,{
-    defaults : {
-        from : "Mixam <mixam.com>"
-    },
-    transport : {
-        service: "gmail",
-        auth : {
-            user : "adefuyeabayomi16@gmail.com",
-            pass : "youarestupid"
-        }
-    }
-});
-
 // send test mail here
 
 // import routes.
 const homeRoute = require("./routes/home");
-const loginRoute = require("./routes/login");
-const signupRoute = require("./routes/signup");
-const forgotpasswordRoute = require("./routes/forgotpassword");
+const authRoute = require("./routes/auth");
 
 //register routes
 fastify.register(homeRoute);
-fastify.register(loginRoute,{client : MongoClient,dbOptions,dbHandler : dbInterface});
-fastify.register(signupRoute,{client : MongoClient,dbOptions,dbHandler : dbInterface});
-fastify.register(forgotpasswordRoute,{ client : MongoClient,dbOptions,dbHandler : dbInterface, generatePassword: utils.generatePassword})
+fastify.register(authRoute);
 
 // start server.
 async function start(){
     try{
-        await fastify.listen(process.env.PORT,"0.0.0.0",(err,addr)=>{
+        await fastify.listen(process.env.PORT,"127.0.0.1",(err,addr)=>{
             if(err){
                 throw err;
             }
@@ -84,4 +63,4 @@ async function start(){
         console.error(error.message);
     }
 }
-start();
+start()
