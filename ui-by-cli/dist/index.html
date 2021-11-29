@@ -10,17 +10,18 @@
       startApp();
       function attachGoogleSignin( element ){
       console.log(element, "sign in attached to the element");
-        auth2.attachClickHandler(element, {}, function(googleUser) {
-            console.log(app);
+        auth2.attachClickHandler(element, {}, function (result) {
+            googleUser = result;
             app.__vue__.$store.commit("updategooglelogin");
+            console.log(app.__vue__.$store.state.googleLogin , "google login status from the auth2 google login handler in the index.html");
         },function (error){
-            alert(JSON.stringify(error,undefined,2));
+            console.log(JSON.stringify(error,undefined,2));
         })
-      }</script><title>Mixam | Build yourself as an entrepreneur.</title><link href="/js/chunk-2d0e4e5a.030e9bfd.js" rel="prefetch"><link href="/css/app.1b4ce167.css" rel="preload" as="style"><link href="/css/chunk-vendors.834ba746.css" rel="preload" as="style"><link href="/js/app.c08a72ba.js" rel="preload" as="script"><link href="/js/chunk-vendors.e0834fa4.js" rel="preload" as="script"><link href="/css/chunk-vendors.834ba746.css" rel="stylesheet"><link href="/css/app.1b4ce167.css" rel="stylesheet"></head><body class="body-style"><noscript><strong>We're sorry but doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><main id="app"></main><script src="/wow.min.js"></script><script src="/uikit.js"></script><script>window.fbAsyncInit = function (){
+      }</script><title>Mixam | Build yourself as an entrepreneur.</title><link href="/js/chunk-2d0e4e5a.030e9bfd.js" rel="prefetch"><link href="/css/app.cf3da66c.css" rel="preload" as="style"><link href="/css/chunk-vendors.834ba746.css" rel="preload" as="style"><link href="/js/app.5e78dea7.js" rel="preload" as="script"><link href="/js/chunk-vendors.e0834fa4.js" rel="preload" as="script"><link href="/css/chunk-vendors.834ba746.css" rel="stylesheet"><link href="/css/app.cf3da66c.css" rel="stylesheet"></head><body class="body-style"><noscript><strong>We're sorry but doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><main id="app"></main><script src="/wow.min.js"></script><script src="/uikit.js"></script><script>window.fbAsyncInit = function (){
         FB.init({
           appId: "305632694743961",
           autoLogAppEvents : true,
           xfbml: true,
           version : "v12.0"
         })
-      };</script><script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script><script src="/js/chunk-vendors.e0834fa4.js"></script><script src="/js/app.c08a72ba.js"></script></body></html>
+      };</script><script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script><script src="/js/chunk-vendors.e0834fa4.js"></script><script src="/js/app.5e78dea7.js"></script></body></html>
