@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico" type="x/icon"><link rel="stylesheet" href="/all.css" type="text/css"><link rel="stylesheet" href="/animate.css" type="text/css"><link rel="stylesheet" href="/bootstrap-grid.min.css" type="text/css"><script src="https://apis.google.com/js/api:client.js"></script><script>// this variable is used by the router.
+      var userInit = true;
+      var userIsAuthenticated = false;</script><script>var googleUser = {};
+      let startApp = function (){
+        gapi.load('auth2', function(){
+           auth2 = gapi.auth2.init({
+            client_id : '394842070729-vn3d91hqf6r8vm40485fpu1lnbarfvam.apps.googleusercontent.com',
+            cookiepolicy: 'single_host_origin'
+          })
+        });
+      };  
+      startApp();
+      function attachGoogleSignin( element ){
+      console.log(element, "sign in attached to the element");
+        auth2.attachClickHandler(element, {}, function (result) {
+            googleUser = result;
+            app.__vue__.$store.commit("updategooglelogin");
+        },function (error){
+            console.log(JSON.stringify(error,undefined,2));
+        })
+      }</script><title>Mixam | Build yourself as an entrepreneur.</title><link href="/css/chunk-13b780d0.ff98ca2c.css" rel="prefetch"><link href="/css/chunk-492685f1.0add67e9.css" rel="prefetch"><link href="/css/chunk-49f442c0.d67fdecb.css" rel="prefetch"><link href="/css/chunk-c87db76c.f0481922.css" rel="prefetch"><link href="/css/chunk-df39ca12.4d7eda7f.css" rel="prefetch"><link href="/js/chunk-0e34215c.0dab76cf.js" rel="prefetch"><link href="/js/chunk-13b780d0.bc38a47b.js" rel="prefetch"><link href="/js/chunk-492685f1.9ed55638.js" rel="prefetch"><link href="/js/chunk-49f442c0.6849dbbb.js" rel="prefetch"><link href="/js/chunk-718641e4.43b3392d.js" rel="prefetch"><link href="/js/chunk-c87db76c.bc6e8cfb.js" rel="prefetch"><link href="/js/chunk-df39ca12.cf97830c.js" rel="prefetch"><link href="/js/chunk-f6381e5a.e5325221.js" rel="prefetch"><link href="/css/app.c6a0f125.css" rel="preload" as="style"><link href="/css/chunk-vendors.d72ac3d9.css" rel="preload" as="style"><link href="/js/app.17f6fbe4.js" rel="preload" as="script"><link href="/js/chunk-vendors.02bb8b4c.js" rel="preload" as="script"><link href="/css/chunk-vendors.d72ac3d9.css" rel="stylesheet"><link href="/css/app.c6a0f125.css" rel="stylesheet"></head><body class="body-style bodystyle"><noscript><strong>We're sorry but doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><main id="app"></main><script src="/axios.js"></script><script src="/wow.min.js"></script><script src="/uikit.js"></script><script src="/js/chunk-vendors.02bb8b4c.js"></script><script src="/js/app.17f6fbe4.js"></script></body></html>
